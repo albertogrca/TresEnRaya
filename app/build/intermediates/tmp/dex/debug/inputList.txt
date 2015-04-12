@@ -1,0 +1,6 @@
+C:\Users\Albertog\AndroidstudioProjects\TresEnRaya1\app\build\intermediates\classes\debug
+C:\Users\Albertog\AndroidstudioProjects\TresEnRaya1\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-26e378efdbd2f5d8efc9fea03e56130584c97aeb.jar
+C:\Users\Albertog\AndroidstudioProjects\TresEnRaya1\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-6b8ce14fd926c5df91c5862e7118ea7c493a9715.jar
+C:\Users\Albertog\AndroidstudioProjects\TresEnRaya1\app\build\intermediates\pre-dexed\debug\classes-c266f8db602e8ae3ce6203abc1ec17c9be50d7fb.jar
+C:\Users\Albertog\AndroidstudioProjects\TresEnRaya1\app\build\intermediates\pre-dexed\debug\classes-46c7ade1abf36ab8d5c763759a68117259c249a7.jar
+C:\Users\Albertog\AndroidstudioProjects\TresEnRaya1\app\build\intermediates\pre-dexed\debug\classes-4aeea08cf57701bf15c350386ad946bdcbbb0a05.jar
