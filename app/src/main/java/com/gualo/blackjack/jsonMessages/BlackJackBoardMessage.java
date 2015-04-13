@@ -12,6 +12,7 @@ import edu.uclm.esi.common.jsonMessages.JSONable;
  * Created by Gualo on 11/4/15.
  */
 public class BlackJackBoardMessage extends JSONMessage{
+
     @JSONable
     private String cartas;
     ////Aqui faltaria la lista de cartas
@@ -55,5 +56,8 @@ public class BlackJackBoardMessage extends JSONMessage{
 
     public String getUserWithTurn() {
         return userWithTurn;
+    }
+    public String getCartas() {
+        return cartas;
     }
 }
