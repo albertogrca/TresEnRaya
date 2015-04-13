@@ -85,6 +85,7 @@ public class BlackJackActivity extends ActionBarActivity {
         });
 
     this.match=new BlackJack(this);
+        loadMatch();
     }
     private void loadMatch() {
         Store store=Store.get();
