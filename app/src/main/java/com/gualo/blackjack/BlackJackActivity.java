@@ -100,8 +100,6 @@ public class BlackJackActivity extends ActionBarActivity {
             if (jsm.getType().equals(BlackJackBoardMessage.class.getSimpleName())) {
                 loadBoard(jsm);
                Dialogs.showOneButtonDialog(BlackJackActivity.this, "Esta hecho el if", "It's not your turn", "OK");
-
-
             } else {
                 ErrorMessage em=(ErrorMessage) jsm;
                 Toast.makeText(this, em.getText(), Toast.LENGTH_LONG).show();

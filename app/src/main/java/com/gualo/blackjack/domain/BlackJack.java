@@ -56,7 +56,6 @@ public class BlackJack {
         if (board.getPlayer2()!=null) {
             if (Store.get().getUser().getEmail().equals(board.getPlayer1()))
                 this.opponent=board.getPlayer2();
-
             else
                 this.opponent=board.getPlayer1();
             this.userWithTurn=board.getUserWithTurn();

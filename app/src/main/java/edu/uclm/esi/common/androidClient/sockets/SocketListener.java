@@ -9,6 +9,9 @@ import java.net.UnknownHostException;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.gualo.blackjack.BlackJackActivity;
+import com.gualo.blackjack.jsonMessages.BlackJackMatchReadyMessage;
+import com.gualo.blackjack.jsonMessages.BlackJackWaitingMessage;
 import com.maco.tresenraya.TresEnRayaActivity;
 import com.maco.tresenraya.jsonMessages.TresEnRayaBoardMessage;
 import com.maco.tresenraya.jsonMessages.TresEnRayaMatchReadyMessage;
@@ -82,6 +85,19 @@ public class SocketListener extends Thread {
 			});
 			return;
 		}
+//BlackJackWaitingMessage
+        if (jsm.getType().equals(BlackJackWaitingMessage.class.getSimpleName())) {
+            final BlackJackWaitingMessage wm=(BlackJackWaitingMessage) jsm;
+            final BlackJackActivity activity=(BlackJackActivity) Store.get().getCurrentContext();
+            activity.runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    activity.loadMessage(wm);
+                }
+            });
+            return;
+        }
 		if (jsm.getType().equals(TresEnRayaMatchReadyMessage.class.getSimpleName())) {
 			final TresEnRayaMatchReadyMessage rm=(TresEnRayaMatchReadyMessage) jsm;
 			final TresEnRayaActivity activity=(TresEnRayaActivity) Store.get().getCurrentContext();
@@ -94,6 +110,18 @@ public class SocketListener extends Thread {
 			});
 			return;
 		}
+        if (jsm.getType().equals(BlackJackMatchReadyMessage.class.getSimpleName())) {
+            final BlackJackMatchReadyMessage rm= (BlackJackMatchReadyMessage) jsm;
+            final BlackJackActivity activity= (BlackJackActivity) Store.get().getCurrentContext();
+            activity.runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    activity.loadReadyMessage(rm);
+                }
+            });
+            return;
+        }
 		if (jsm.getType().equals(TresEnRayaBoardMessage.class.getSimpleName())) {
 			final TresEnRayaBoardMessage board=(TresEnRayaBoardMessage) jsm;
 			final TresEnRayaActivity activity=(TresEnRayaActivity) Store.get().getCurrentContext();
