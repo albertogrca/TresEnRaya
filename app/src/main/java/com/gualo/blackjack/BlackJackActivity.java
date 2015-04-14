@@ -16,6 +16,8 @@ import com.gualo.blackjack.jsonMessages.BlackJackWaitingMessage;
 import com.maco.tresenraya.R;
 
 import com.gualo.blackjack.jsonMessages.BlackJackMovement;
+import com.maco.tresenraya.domain.TresEnRaya;
+import com.maco.tresenraya.jsonMessages.TresEnRayaBoardMessage;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -85,7 +87,7 @@ public class BlackJackActivity extends ActionBarActivity {
         });
 
     this.match=new BlackJack(this);
-        loadMatch();
+    loadMatch();
     }
     private void loadMatch() {
         Store store=Store.get();
@@ -97,6 +99,9 @@ public class BlackJackActivity extends ActionBarActivity {
             JSONMessage jsm= Proxy.get().postJSONOrderWithResponse("GetBoard.action", jspIdUser, jspIdGame, jspIdMatch);
             if (jsm.getType().equals(BlackJackBoardMessage.class.getSimpleName())) {
                 loadBoard(jsm);
+               Dialogs.showOneButtonDialog(BlackJackActivity.this, "Esta hecho el if", "It's not your turn", "OK");
+
+
             } else {
                 ErrorMessage em=(ErrorMessage) jsm;
                 Toast.makeText(this, em.getText(), Toast.LENGTH_LONG).show();
