@@ -99,7 +99,7 @@ public class BlackJackActivity extends ActionBarActivity {
             JSONMessage jsm= Proxy.get().postJSONOrderWithResponse("GetBoard.action", jspIdUser, jspIdGame, jspIdMatch);
             if (jsm.getType().equals(BlackJackBoardMessage.class.getSimpleName())) {
                 loadBoard(jsm);
-               // Dialogs.showOneButtonDialog(BlackJackActivity.this, "Esta hecho el if", "It's not your turn", "OK");
+               Dialogs.showOneButtonDialog(BlackJackActivity.this, "Esta hecho el if", "It's not your turn", "OK");
 
 
             } else {

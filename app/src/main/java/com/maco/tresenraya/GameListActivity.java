@@ -95,13 +95,14 @@ public class GameListActivity extends ActionBarActivity implements IDialogListen
 					if (store.getIdGame()==TresEnRaya.TRES_EN_RAYA) {
                         Intent i = new Intent(this, TresEnRayaActivity.class);
                         startActivity(i);
+                    }else {
+                        if (store.getIdGame() == BlackJack.BLACKJACK) {
+                            Intent j = new Intent(this, BlackJackActivity.class);
+                            startActivity(j);
+                        } else {
+                            Toast.makeText(this, "That game is not implemented", Toast.LENGTH_LONG).show();
+                        }
                     }
-                    if (store.getIdGame()== BlackJack.BLACKJACK) {
-                        Intent j=new Intent(this, BlackJackActivity.class);
-                        startActivity(j);
-					} else {
-						Toast.makeText(this, "That game is not implemented", Toast.LENGTH_LONG).show();
-					}
 				} else {
 					ErrorMessage em=(ErrorMessage) jso;
 					Toast.makeText(this, em.getText(), Toast.LENGTH_LONG).show();
