@@ -74,13 +74,15 @@ public class BlackJackActivity extends ActionBarActivity {
             public void onClick(View v) {
 
                 if (match.getOpponent()==null) {
-                    Dialogs.showOneButtonDialog(BlackJackActivity.this, "Boton plantarse", "Wait for the opponent", "OK");
+                    Dialogs.showOneButtonDialog(BlackJackActivity.this, "Attention", "Wait for the opponent", "OK");
                     //Dialogs.showOneButtonDialog(BlackJackActivity.this, "Attention", "Wait for the opponent", "OK");
                 } else if (!match.getUserWithTurn().equals(Store.get().getUser().getEmail())) {
                     Dialogs.showOneButtonDialog(BlackJackActivity.this, "Attention", "It's not your turn", "OK");
                 } else {
-                    JSONObject jso=(JSONObject) v.getTag();
+                    //JSONObject jso=(JSONObject) v.getTag();
                     BlackJackMovement mov;
+                    mov = new BlackJackMovement("p");
+                    match.put(mov);
 
                 }
             }
@@ -96,10 +98,10 @@ public class BlackJackActivity extends ActionBarActivity {
         JSONParameter jspIdGame=new JSONParameter("idGame", ""+store.getIdGame());
         JSONParameter jspIdMatch=new JSONParameter("idMatch", ""+store.getIdMatch());
         try {
-            JSONMessage jsm= Proxy.get().postJSONOrderWithResponse("GetBoard.action", jspIdUser, jspIdGame, jspIdMatch);
+            JSONMessage jsm= Proxy.get().postJSONOrderWithResponse("GetBoardBJ.action", jspIdUser, jspIdGame, jspIdMatch);
             if (jsm.getType().equals(BlackJackBoardMessage.class.getSimpleName())) {
                 loadBoard(jsm);
-               Dialogs.showOneButtonDialog(BlackJackActivity.this, "Esta hecho el if", "It's not your turn", "OK");
+               //Dialogs.showOneButtonDialog(BlackJackActivity.this, "Esta hecho el if", "It's not your turn", "OK");
             } else {
                 ErrorMessage em=(ErrorMessage) jsm;
                 Toast.makeText(this, em.getText(), Toast.LENGTH_LONG).show();

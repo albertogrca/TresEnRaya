@@ -8,6 +8,17 @@ import edu.uclm.esi.common.jsonMessages.JSONable;
  */
 public class BlackJackMovement extends JSONMessage {
     @JSONable
+    private String tipo;
+
+    public BlackJackMovement( String tipo) {
+        super(true);
+        this.tipo = tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    /*@JSONable
     private String palo;
     @JSONable
     private int valor;
@@ -23,5 +34,6 @@ public class BlackJackMovement extends JSONMessage {
 
     public int getValor() {
         return valor;
-    }
+    }*/
+
 }

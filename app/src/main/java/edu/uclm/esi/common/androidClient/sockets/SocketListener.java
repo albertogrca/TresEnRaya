@@ -10,6 +10,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.gualo.blackjack.BlackJackActivity;
+import com.gualo.blackjack.domain.BlackJack;
+import com.gualo.blackjack.jsonMessages.BlackJackBoardMessage;
 import com.gualo.blackjack.jsonMessages.BlackJackMatchReadyMessage;
 import com.gualo.blackjack.jsonMessages.BlackJackWaitingMessage;
 import com.maco.tresenraya.TresEnRayaActivity;
@@ -137,7 +139,23 @@ public class SocketListener extends Thread {
 				}
 			});
 			return;
-		} 
+		}
+        if (jsm.getType().equals(BlackJackBoardMessage.class.getSimpleName())) {
+            final BlackJackBoardMessage board=(BlackJackBoardMessage) jsm;
+            final BlackJackActivity activity=(BlackJackActivity) Store.get().getCurrentContext();
+            activity.runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    try {
+                        activity.loadBoard(board);
+                    } catch (JSONException e) {
+                        sendToast(e.getMessage());
+                    }
+                }
+            });
+            return;
+        }
 		if (jsm.getType().equals(ErrorMessage.class.getSimpleName())) {
 			ErrorMessage em=(ErrorMessage) jsm;
 			text=em.getText();
