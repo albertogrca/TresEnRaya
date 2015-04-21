@@ -15,25 +15,11 @@ public class BlackJackMovement extends JSONMessage {
         this.tipo = tipo;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    /*@JSONable
-    private String palo;
-    @JSONable
-    private int valor;
-    public BlackJackMovement(String palo, int valor) {
-        super(true);
-        this.palo=palo;
-        this.valor=valor;
-    }
-
-    public String getPalo() {
-        return palo;
-    }
-
-    public int getValor() {
-        return valor;
-    }*/
-
 }

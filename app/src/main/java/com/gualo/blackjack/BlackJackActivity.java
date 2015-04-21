@@ -34,6 +34,7 @@ public class BlackJackActivity extends ActionBarActivity {
     private TextView tvPlayer;
     private TextView tvMessage;
     private TextView tvOpponent;
+    private TextView tvCartas;
     private Button btnsPedirCarta;
     private Button btnsPlantarse;
 
@@ -45,6 +46,7 @@ public class BlackJackActivity extends ActionBarActivity {
         this.tvPlayer=(TextView) this.findViewById(R.id.textViewBlackJackPlayer);
         this.tvMessage=(TextView) this.findViewById(R.id.textViewMessage);
         this.tvOpponent=(TextView) this.findViewById(R.id.textViewOpponent);
+        this.tvCartas=(TextView) this.findViewById(R.id.textViewCarta);
         //this.btns=new Button[2];
         //((TextView) this.findViewById(R.id.textViewBlackJackPlayer)).setText(tvPlayer.getText());
         Store store=Store.get();
@@ -55,7 +57,7 @@ public class BlackJackActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                if (match.getOpponent()==null) {//poner un ==
+                if (match.getOpponent()==null) {
                     Dialogs.showOneButtonDialog(BlackJackActivity.this, "Boton apretado", "Wait for the opponent", "OK");
                     //Dialogs.showOneButtonDialog(BlackJackActivity.this, "Attention", "Wait for the opponent", "OK");
                 } else if (!match.getUserWithTurn().equals(Store.get().getUser().getEmail())) {
