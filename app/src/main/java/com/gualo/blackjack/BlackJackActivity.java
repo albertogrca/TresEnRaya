@@ -51,6 +51,8 @@ public class BlackJackActivity extends ActionBarActivity {
         //((TextView) this.findViewById(R.id.textViewBlackJackPlayer)).setText(tvPlayer.getText());
         Store store=Store.get();
         this.tvPlayer.setText(store.getUser().getEmail());
+        final String user=(String)this.tvPlayer.getText();
+        //final String cartas
         this.btnsPedirCarta = (Button) this.findViewById(R.id.btnPedirCarta);
         btnsPedirCarta.setOnClickListener(new View.OnClickListener() {
 
@@ -63,9 +65,12 @@ public class BlackJackActivity extends ActionBarActivity {
                 } else if (!match.getUserWithTurn().equals(Store.get().getUser().getEmail())) {
                     Dialogs.showOneButtonDialog(BlackJackActivity.this, "Attention", "It's not your turn", "OK");
                 } else {
-                    JSONObject jso=(JSONObject) v.getTag();
+                    //JSONObject jso=(JSONObject) v.getTag();
                     BlackJackMovement mov;
-
+                    ///metemos el user y las cartas junto al movimiento
+                    mov = new BlackJackMovement(tvPlayer.getText().toString(),tvCartas.getText().toString(),"c");
+                    //mov = new BlackJackMovement("c");
+                    match.put(mov);
                 }
             }
         });
@@ -83,7 +88,8 @@ public class BlackJackActivity extends ActionBarActivity {
                 } else {
                     //JSONObject jso=(JSONObject) v.getTag();
                     BlackJackMovement mov;
-                    mov = new BlackJackMovement("p");
+                    mov = new BlackJackMovement(tvPlayer.getText().toString(),tvCartas.getText().toString(),"p");
+                    //mov = new BlackJackMovement("p");
                     match.put(mov);
 
                 }
@@ -118,6 +124,8 @@ public class BlackJackActivity extends ActionBarActivity {
         if (this.match==null)
             this.match=new BlackJack(this);
         this.match.load(board);
+        this.tvOpponent.setText(this.match.getOpponent().toString());
+        this.tvCartas.setText((CharSequence) this.match.getCartas());
     }
     public void loadMessage(BlackJackWaitingMessage bj) {
         this.tvMessage.setText(bj.getText());
