@@ -41,8 +41,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/btnPlantarse"
-        android:layout_alignRight="@+id/btnPlantarse"
-        android:layout_alignEnd="@+id/btnPlantarse" />
+        android:layout_alignRight="@+id/btnPedirCarta"
+        android:layout_alignEnd="@+id/btnPedirCarta" />
 
     <TextView
         android:layout_width="wrap_content"

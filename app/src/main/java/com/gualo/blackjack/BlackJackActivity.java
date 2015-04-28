@@ -98,7 +98,9 @@ public class BlackJackActivity extends ActionBarActivity {
                 } else if (!match.getUserWithTurn().equals(Store.get().getUser().getEmail())) {
                     Dialogs.showOneButtonDialog(BlackJackActivity.this, "Attention", "It's not your turn", "OK");
                 } else {
-                    //JSONObject jso=(JSONObject) v.getTag();
+                    btnsPedirCarta.setEnabled(false);
+                    btnsPlantarse.setEnabled(false);
+                    tvMessage.setText("Has jugado tu turno.");
                     BlackJackMovement mov;
                     mov = new BlackJackMovement(tvPlayer.getText().toString(),tvCartas.getText().toString(),"" + puntos + "","p");
                     match.put(mov);
