@@ -8,20 +8,51 @@ import edu.uclm.esi.common.jsonMessages.JSONable;
  */
 public class BlackJackMovement extends JSONMessage {
     @JSONable
-    private String palo;
+    private String tipo;
     @JSONable
-    private int valor;
-    public BlackJackMovement(String palo, int valor) {
+    private String user;
+    @JSONable
+    private String cartas;
+    @JSONable
+    private String puntos;
+
+    public BlackJackMovement(String user,String cartas, String puntos, String tipo) {
         super(true);
-        this.palo=palo;
-        this.valor=valor;
+        this.user=user;
+        this.cartas=cartas;
+        this.tipo = tipo;
+        this.puntos=puntos;
+    }
+    public BlackJackMovement(String user,String cartas, String tipo) {
+        super(true);
+        this.user=user;
+        this.cartas=cartas;
+        this.tipo = tipo;
+    }
+    public BlackJackMovement(String tipo) {
+        super(true);
+        this.tipo = tipo;
+    }
+    public String getTipo() {
+        return tipo;
     }
 
-    public String getPalo() {
-        return palo;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    public String getCartas() {
+        return cartas;
     }
 
-    public int getValor() {
-        return valor;
+    public void setCartas(String cartas) {
+        this.cartas = cartas;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 }

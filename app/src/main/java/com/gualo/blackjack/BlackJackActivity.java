@@ -34,8 +34,11 @@ public class BlackJackActivity extends ActionBarActivity {
     private TextView tvPlayer;
     private TextView tvMessage;
     private TextView tvOpponent;
+    private TextView tvCartas;
+    private TextView tvPuntos;
     private Button btnsPedirCarta;
     private Button btnsPlantarse;
+    private int puntos=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,25 +48,41 @@ public class BlackJackActivity extends ActionBarActivity {
         this.tvPlayer=(TextView) this.findViewById(R.id.textViewBlackJackPlayer);
         this.tvMessage=(TextView) this.findViewById(R.id.textViewMessage);
         this.tvOpponent=(TextView) this.findViewById(R.id.textViewOpponent);
+        this.tvCartas=(TextView) this.findViewById(R.id.textViewCarta);
+        this.tvPuntos=(TextView) this.findViewById(R.id.textViewPuntos);
         //this.btns=new Button[2];
         //((TextView) this.findViewById(R.id.textViewBlackJackPlayer)).setText(tvPlayer.getText());
         Store store=Store.get();
         this.tvPlayer.setText(store.getUser().getEmail());
+        final String user=(String)this.tvPlayer.getText();
+        //final String cartas
         this.btnsPedirCarta = (Button) this.findViewById(R.id.btnPedirCarta);
         btnsPedirCarta.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                if (match.getOpponent()==null) {//poner un ==
+                if (match.getOpponent()==null) {
                     Dialogs.showOneButtonDialog(BlackJackActivity.this, "Boton apretado", "Wait for the opponent", "OK");
                     //Dialogs.showOneButtonDialog(BlackJackActivity.this, "Attention", "Wait for the opponent", "OK");
                 } else if (!match.getUserWithTurn().equals(Store.get().getUser().getEmail())) {
                     Dialogs.showOneButtonDialog(BlackJackActivity.this, "Attention", "It's not your turn", "OK");
                 } else {
-                    JSONObject jso=(JSONObject) v.getTag();
-                    BlackJackMovement mov;
-
+                    if (puntos <= 21) {
+                        BlackJackMovement mov;
+                        ///metemos el user y las cartas junto al movimiento
+                        mov = new BlackJackMovement(tvPlayer.getText().toString(),tvCartas.getText().toString(), "" + puntos + "", "c");
+                        match.put(mov);
+                    }
+                    else {
+                        Dialogs.showOneButtonDialog(BlackJackActivity.this, "Puntuación límite", "Has excedido los 21 puntos, lo sentimos.", "OK :(");
+                        btnsPedirCarta.setEnabled(false);
+                        btnsPlantarse.setEnabled(false);
+                        tvMessage.setText("Has jugado tu turno.");
+                        BlackJackMovement mov;
+                        mov = new BlackJackMovement(tvPlayer.getText().toString(), tvCartas.getText().toString(), "" + puntos + "", "p");
+                        match.put(mov);
+                    }
                 }
             }
         });
@@ -74,13 +93,17 @@ public class BlackJackActivity extends ActionBarActivity {
             public void onClick(View v) {
 
                 if (match.getOpponent()==null) {
-                    Dialogs.showOneButtonDialog(BlackJackActivity.this, "Boton plantarse", "Wait for the opponent", "OK");
+                    Dialogs.showOneButtonDialog(BlackJackActivity.this, "Attention", "Wait for the opponent", "OK");
                     //Dialogs.showOneButtonDialog(BlackJackActivity.this, "Attention", "Wait for the opponent", "OK");
                 } else if (!match.getUserWithTurn().equals(Store.get().getUser().getEmail())) {
                     Dialogs.showOneButtonDialog(BlackJackActivity.this, "Attention", "It's not your turn", "OK");
                 } else {
-                    JSONObject jso=(JSONObject) v.getTag();
+                    btnsPedirCarta.setEnabled(false);
+                    btnsPlantarse.setEnabled(false);
+                    tvMessage.setText("Has jugado tu turno.");
                     BlackJackMovement mov;
+                    mov = new BlackJackMovement(tvPlayer.getText().toString(),tvCartas.getText().toString(),"" + puntos + "","p");
+                    match.put(mov);
 
                 }
             }
@@ -96,12 +119,10 @@ public class BlackJackActivity extends ActionBarActivity {
         JSONParameter jspIdGame=new JSONParameter("idGame", ""+store.getIdGame());
         JSONParameter jspIdMatch=new JSONParameter("idMatch", ""+store.getIdMatch());
         try {
-            JSONMessage jsm= Proxy.get().postJSONOrderWithResponse("GetBoard.action", jspIdUser, jspIdGame, jspIdMatch);
+            JSONMessage jsm= Proxy.get().postJSONOrderWithResponse("GetBoardBJ.action", jspIdUser, jspIdGame, jspIdMatch);
             if (jsm.getType().equals(BlackJackBoardMessage.class.getSimpleName())) {
                 loadBoard(jsm);
-               Dialogs.showOneButtonDialog(BlackJackActivity.this, "Esta hecho el if", "It's not your turn", "OK");
-
-
+               //Dialogs.showOneButtonDialog(BlackJackActivity.this, "Esta hecho el if", "It's not your turn", "OK");
             } else {
                 ErrorMessage em=(ErrorMessage) jsm;
                 Toast.makeText(this, em.getText(), Toast.LENGTH_LONG).show();
@@ -116,7 +137,29 @@ public class BlackJackActivity extends ActionBarActivity {
         if (this.match==null)
             this.match=new BlackJack(this);
         this.match.load(board);
+        this.tvOpponent.setText(this.match.getOpponent().toString());
+        this.tvCartas.setText((CharSequence) this.match.getCartas());
+        this.puntos = calcular_puntos(this.match.getCartas());
+        tvPuntos.setText(puntos + " puntos.");
     }
+
+    public int calcular_puntos(String cartas){
+        int puntos=0;
+        if (cartas.length() > 0) {
+            String[] cartasAux = cartas.split("-");
+            for (int i = 0; i < cartasAux.length; i++) {
+                if (cartasAux[i].length() == 2) {
+                    puntos += Character.getNumericValue(cartasAux[i].charAt(1));
+                } else {
+                    int aux = 10;
+                    puntos += aux;
+                }
+            }
+        }
+        return puntos;
+    }
+
+
     public void loadMessage(BlackJackWaitingMessage bj) {
         this.tvMessage.setText(bj.getText());
     }

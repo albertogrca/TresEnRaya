@@ -25,12 +25,11 @@ public class BlackJack {
     private BlackJackActivity ctx;
     private String opponent;
     private String userWithTurn;
-    ////ver lo de la matriz cartas
-    public ArrayList<String> cartas;
+    private String cartas;
 
     public BlackJack(BlackJackActivity ctx) {
         this.ctx=ctx;
-        cartas=new ArrayList<String>();
+        this.cartas="";
     }
     public void put(BlackJackMovement mov) {
         Store store=Store.get();
@@ -50,13 +49,22 @@ public class BlackJack {
             Toast.makeText(this.ctx, e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
+
+    public String getCartas() {
+        return cartas;
+    }
+
+    public void setCartas(String cartas) {
+        this.cartas = cartas;
+    }
+
     public void load(BlackJackBoardMessage board) throws JSONException {
         ///aqui falta recibir el tablero
-        String cartas=board.getCartas();
+        this.cartas=board.getCartas();
+
         if (board.getPlayer2()!=null) {
             if (Store.get().getUser().getEmail().equals(board.getPlayer1()))
                 this.opponent=board.getPlayer2();
-
             else
                 this.opponent=board.getPlayer1();
             this.userWithTurn=board.getUserWithTurn();
