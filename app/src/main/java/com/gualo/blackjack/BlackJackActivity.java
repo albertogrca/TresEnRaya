@@ -211,7 +211,7 @@ public class BlackJackActivity extends ActionBarActivity {
         btnApostar.setEnabled(false);
         BlackJackMovement mov;
         String apuestaAux=inputFichas.getText().toString();
-        mov = new BlackJackMovement(tvPlayer.getText().toString(),"a",Integer.parseInt(apuestaAux));
+        mov = new BlackJackMovement(tvPlayer.getText().toString(),"a", apuestaAux);
         match.put(mov);
     }
 }
