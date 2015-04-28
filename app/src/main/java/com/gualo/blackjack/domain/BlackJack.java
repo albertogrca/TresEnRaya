@@ -39,7 +39,11 @@ public class BlackJack {
         try {
             JSONMessage jsm= Proxy.get().postJSONOrderWithResponse("SendMovement.action", mov, jspIdUser, jspIdGame, jspIdMatch);
             if (jsm.getType().equals(OKMessage.class.getSimpleName())) {
-                Toast.makeText(this.ctx, "Succesfully sent", Toast.LENGTH_LONG).show();
+                if(mov.getTipo().charAt(0)=='a'){
+                    Toast.makeText(this.ctx, "Apuesta Realizada", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(this.ctx, "Succesfully sent", Toast.LENGTH_LONG).show();
+                }
 
             } else {
                 ErrorMessage em=(ErrorMessage) jsm;

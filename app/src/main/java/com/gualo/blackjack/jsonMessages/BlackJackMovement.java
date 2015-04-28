@@ -15,6 +15,8 @@ public class BlackJackMovement extends JSONMessage {
     private String cartas;
     @JSONable
     private String puntos;
+    @JSONable
+    private int apuesta;
 
     public BlackJackMovement(String user,String cartas, String puntos, String tipo) {
         super(true);
@@ -22,6 +24,12 @@ public class BlackJackMovement extends JSONMessage {
         this.cartas=cartas;
         this.tipo = tipo;
         this.puntos=puntos;
+    }
+    public BlackJackMovement(String user, String tipo, int apuesta) {
+        super(true);
+        this.user=user;
+        this.tipo = tipo;
+        this.apuesta=apuesta;
     }
     public BlackJackMovement(String user,String cartas, String tipo) {
         super(true);

@@ -35,6 +35,7 @@ public class JSONMessagesBuilder {
             return new BlackJackBoardMessage(jso);
         if (jso.get("type").equals(BlackJackWaitingMessage.class.getSimpleName()))
             return new BlackJackWaitingMessage(jso.getString("text"));
+
         return null;
 	}
 }

@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ import edu.uclm.esi.common.androidClient.http.Proxy;
 import edu.uclm.esi.common.jsonMessages.ErrorMessage;
 import edu.uclm.esi.common.jsonMessages.JSONMessage;
 import edu.uclm.esi.common.jsonMessages.JSONParameter;
+import edu.uclm.esi.common.jsonMessages.OKMessage;
 
 public class BlackJackActivity extends ActionBarActivity {
     private BlackJack match;
@@ -38,6 +40,8 @@ public class BlackJackActivity extends ActionBarActivity {
     private TextView tvPuntos;
     private Button btnsPedirCarta;
     private Button btnsPlantarse;
+    private Button btnApostar;
+    private EditText inputFichas;
     private int puntos=0;
 
     @Override
@@ -50,12 +54,15 @@ public class BlackJackActivity extends ActionBarActivity {
         this.tvOpponent=(TextView) this.findViewById(R.id.textViewOpponent);
         this.tvCartas=(TextView) this.findViewById(R.id.textViewCarta);
         this.tvPuntos=(TextView) this.findViewById(R.id.textViewPuntos);
+        this.inputFichas=(EditText) this.findViewById(R.id.inputFichas);
         //this.btns=new Button[2];
         //((TextView) this.findViewById(R.id.textViewBlackJackPlayer)).setText(tvPlayer.getText());
         Store store=Store.get();
         this.tvPlayer.setText(store.getUser().getEmail());
         final String user=(String)this.tvPlayer.getText();
         //final String cartas
+
+        btnApostar = (Button) findViewById(R.id.btnApostar);
         this.btnsPedirCarta = (Button) this.findViewById(R.id.btnPedirCarta);
         btnsPedirCarta.setOnClickListener(new View.OnClickListener() {
 
@@ -100,7 +107,7 @@ public class BlackJackActivity extends ActionBarActivity {
                 } else {
                     btnsPedirCarta.setEnabled(false);
                     btnsPlantarse.setEnabled(false);
-                    tvMessage.setText("Has jugado tu turno.");
+                    tvMessage.setText("Has jugado tu turno. ");
                     BlackJackMovement mov;
                     mov = new BlackJackMovement(tvPlayer.getText().toString(),tvCartas.getText().toString(),"" + puntos + "","p");
                     match.put(mov);
@@ -112,6 +119,7 @@ public class BlackJackActivity extends ActionBarActivity {
     this.match=new BlackJack(this);
     loadMatch();
     }
+
     private void loadMatch() {
         Store store=Store.get();
         this.tvPlayer.setText(store.getUser().getEmail());
@@ -197,5 +205,13 @@ public class BlackJackActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    public void apostar(View v) {
+        btnsPedirCarta.setEnabled(true);
+        btnsPlantarse.setEnabled(true);
+        btnApostar.setEnabled(false);
+        BlackJackMovement mov;
+        String apuestaAux=inputFichas.getText().toString();
+        mov = new BlackJackMovement(tvPlayer.getText().toString(),"a",Integer.parseInt(apuestaAux));
+        match.put(mov);
+    }
 }

@@ -18,7 +18,8 @@
         android:layout_below="@+id/textViewBlackJackPlayer"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="164dp" />
+        android:layout_marginTop="164dp"
+        android:enabled="false" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -31,7 +32,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginRight="57dp"
         android:layout_marginEnd="57dp"
-        android:onClick="pedirCarta" />
+        android:onClick="pedirCarta"
+        android:enabled="false" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,5 +85,28 @@
         android:layout_below="@+id/textView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/inputFichas"
+        android:layout_below="@+id/textViewOpponent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp"
+        android:text="10"
+        android:textAlignment="center" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apostar"
+        android:id="@+id/btnApostar"
+        android:layout_below="@+id/inputFichas"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp"
+        android:onClick="apostar"
+        android:enabled="true" />
 
 </RelativeLayout>
