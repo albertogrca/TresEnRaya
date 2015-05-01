@@ -43,6 +43,7 @@ public class BlackJackActivity extends ActionBarActivity {
     private Button btnApostar;
     private EditText inputFichas;
     private int puntos=0;
+    private boolean pasado=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,6 +150,14 @@ public class BlackJackActivity extends ActionBarActivity {
         this.tvCartas.setText((CharSequence) this.match.getCartas());
         this.puntos = calcular_puntos(this.match.getCartas());
         tvPuntos.setText(puntos + " puntos.");
+        if(puntos>21 && pasado==false){
+            this.btnsPedirCarta.setEnabled(false);
+            this.btnsPlantarse.setEnabled(false);
+            BlackJackMovement mov;
+            mov = new BlackJackMovement(tvPlayer.getText().toString(),tvCartas.getText().toString(),"" + puntos + "","p");
+            match.put(mov);
+            pasado=true;
+        }
     }
 
     public int calcular_puntos(String cartas){
