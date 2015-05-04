@@ -7,6 +7,7 @@ import com.gualo.blackjack.domain.BlackJack;
 import com.gualo.blackjack.jsonMessages.BlackJackBoardMessage;
 import com.gualo.blackjack.jsonMessages.BlackJackMatchReadyMessage;
 import com.gualo.blackjack.jsonMessages.BlackJackWaitingMessage;
+import com.gualo.blackjack.jsonMessages.RankingJSONMessage;
 import com.maco.tresenraya.jsonMessages.GameListMessage;
 import com.maco.tresenraya.jsonMessages.TresEnRayaBoardMessage;
 import com.maco.tresenraya.jsonMessages.TresEnRayaWaitingMessage;
@@ -35,7 +36,8 @@ public class JSONMessagesBuilder {
             return new BlackJackBoardMessage(jso);
         if (jso.get("type").equals(BlackJackWaitingMessage.class.getSimpleName()))
             return new BlackJackWaitingMessage(jso.getString("text"));
-
+        if (jso.get("type").equals(RankingJSONMessage.class.getSimpleName()))
+            return new RankingJSONMessage(jso.getString("text"));
         return null;
 	}
 }

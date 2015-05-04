@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.gualo.blackjack.BlackJackActivity;
+import com.gualo.blackjack.BlackJackRanking;
 import com.gualo.blackjack.domain.BlackJack;
 import com.maco.tresenraya.domain.TresEnRaya;
 import com.maco.tresenraya.jsonMessages.GameListMessage;
@@ -115,6 +116,12 @@ public class GameListActivity extends ActionBarActivity implements IDialogListen
 			btnSelectedGameId=null;
 		}
 	}
-
+public void ver_ranking(View v){
+    Store store=Store.get();
+    User user=store.getUser();
+    Intent i = new Intent(this, BlackJackRanking.class);
+    i.putExtra("usuario", user.getEmail());
+    startActivity(i);
+}
 
 }

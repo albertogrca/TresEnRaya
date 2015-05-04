@@ -48,6 +48,10 @@
             android:name="com.gualo.blackjack.BlackJackActivity"
             android:label="@string/title_activity_black_jack_" >
         </activity>
+        <activity
+            android:name="com.gualo.blackjack.BlackJackRanking"
+            android:label="@string/title_activity_black_jack_ranking2" >
+        </activity>
     </application>
 
 </manifest>

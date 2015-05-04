@@ -10,5 +10,7 @@
     <string name="title_activity_game">GameActivity</string>
     <string name="title_activity_tres_en_raya">TresEnRayaActivity</string>
     <string name="title_activity_black_jack_">BlackJack_Activity</string>
+    <string name="title_activity_black_jack_ranking">BlackJackRanking</string>
+    <string name="title_activity_black_jack_ranking2">BlackJackRanking2</string>
 
 </resources>

@@ -1692,9 +1692,9 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f020053;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f09005d;
-        public static final int LinearLayout2=0x7f09006b;
-        public static final int LinearLayoutGameList=0x7f090065;
+        public static final int LinearLayout1=0x7f09005f;
+        public static final int LinearLayout2=0x7f09006e;
+        public static final int LinearLayoutGameList=0x7f090067;
         public static final int action_bar=0x7f090045;
         public static final int action_bar_activity_content=0x7f090000;
         public static final int action_bar_container=0x7f090044;
@@ -1708,7 +1708,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f090042;
         public static final int action_mode_bar_stub=0x7f090041;
         public static final int action_mode_close_button=0x7f090034;
-        public static final int action_settings=0x7f090079;
+        public static final int action_settings=0x7f09007c;
         public static final int activity_chooser_view_content=0x7f090035;
         public static final int adjust_height=0x7f090016;
         public static final int adjust_width=0x7f090017;
@@ -1718,36 +1718,38 @@ containing a value of this type.
         public static final int btnApostar=0x7f09005c;
         public static final int btnPedirCarta=0x7f090055;
         public static final int btnPlantarse=0x7f090054;
-        public static final int button0=0x7f09006f;
-        public static final int button1=0x7f090070;
-        public static final int button2=0x7f090071;
-        public static final int button3=0x7f090072;
-        public static final int button4=0x7f090073;
-        public static final int button5=0x7f090074;
-        public static final int button6=0x7f090075;
-        public static final int button7=0x7f090076;
-        public static final int button8=0x7f090077;
-        public static final int buttonCreateAccount=0x7f09006e;
-        public static final int buttonLogin=0x7f09006c;
-        public static final int buttonOK=0x7f09006a;
-        public static final int buttonRegister=0x7f090064;
+        public static final int btnRankingBJ=0x7f090068;
+        public static final int button0=0x7f090072;
+        public static final int button1=0x7f090073;
+        public static final int button2=0x7f090074;
+        public static final int button3=0x7f090075;
+        public static final int button4=0x7f090076;
+        public static final int button5=0x7f090077;
+        public static final int button6=0x7f090078;
+        public static final int button7=0x7f090079;
+        public static final int button8=0x7f09007a;
+        public static final int buttonCreateAccount=0x7f090071;
+        public static final int buttonLogin=0x7f09006f;
+        public static final int buttonOK=0x7f09006d;
+        public static final int buttonRegister=0x7f090066;
         public static final int buyButton=0x7f090028;
         public static final int buy_now=0x7f09002c;
         public static final int buy_with_google=0x7f09002d;
         public static final int checkbox=0x7f09003d;
         public static final int classic=0x7f09002f;
         public static final int collapseActionView=0x7f09001c;
+        public static final int container=0x7f09005d;
         public static final int decor_content_parent=0x7f090043;
         public static final int default_activity_button=0x7f090038;
         public static final int dialog=0x7f090020;
         public static final int disableHome=0x7f09000c;
         public static final int donate_with_google=0x7f09002e;
         public static final int dropdown=0x7f090021;
-        public static final int editTextEmail=0x7f09005f;
-        public static final int editTextLogin=0x7f090067;
-        public static final int editTextPwd=0x7f090068;
-        public static final int editTextPwd1=0x7f090061;
-        public static final int editTextPwd2=0x7f090063;
+        public static final int editTextEmail=0x7f090061;
+        public static final int editTextLogin=0x7f09006a;
+        public static final int editTextPwd=0x7f09006b;
+        public static final int editTextPwd1=0x7f090063;
+        public static final int editTextPwd2=0x7f090065;
         public static final int edit_query=0x7f090047;
         public static final int end=0x7f090014;
         public static final int expand_activities_button=0x7f090036;
@@ -1764,6 +1766,7 @@ containing a value of this type.
         public static final int inputFichas=0x7f09005b;
         public static final int listMode=0x7f090009;
         public static final int list_item=0x7f090039;
+        public static final int ll=0x7f09005e;
         public static final int match_parent=0x7f09002a;
         public static final int middle=0x7f090015;
         public static final int monochrome=0x7f090031;
@@ -1791,24 +1794,24 @@ containing a value of this type.
         public static final int showCustom=0x7f09000f;
         public static final int showHome=0x7f090010;
         public static final int showTitle=0x7f090011;
-        public static final int sign_in_button=0x7f09006d;
+        public static final int sign_in_button=0x7f090070;
         public static final int split_action_bar=0x7f090007;
         public static final int strict_sandbox=0x7f090027;
         public static final int submit_area=0x7f090050;
         public static final int tabMode=0x7f09000b;
         public static final int terrain=0x7f09001a;
         public static final int textView=0x7f090059;
-        public static final int textView3=0x7f090062;
+        public static final int textView3=0x7f090064;
         public static final int textViewBlackJackPlayer=0x7f090053;
         public static final int textViewCarta=0x7f090058;
-        public static final int textViewErrorMsg=0x7f090069;
-        public static final int textViewGameName=0x7f090066;
+        public static final int textViewErrorMsg=0x7f09006c;
+        public static final int textViewGameName=0x7f090069;
         public static final int textViewMessage=0x7f090056;
         public static final int textViewOpponent=0x7f090057;
-        public static final int textViewPlayersWaiting=0x7f090078;
+        public static final int textViewPlayersWaiting=0x7f09007b;
         public static final int textViewPuntos=0x7f09005a;
-        public static final int textViewPwd1=0x7f090060;
-        public static final int textViewTresEnRayaPlayer=0x7f09005e;
+        public static final int textViewPwd1=0x7f090062;
+        public static final int textViewTresEnRayaPlayer=0x7f090060;
         public static final int title=0x7f09003b;
         public static final int up=0x7f090008;
         public static final int useLogo=0x7f090012;
@@ -1844,13 +1847,16 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030015;
         public static final int abc_simple_dropdown_hint=0x7f030016;
         public static final int activity_black_jack_=0x7f030017;
-        public static final int activity_create_account=0x7f030018;
-        public static final int activity_game_list=0x7f030019;
-        public static final int activity_login=0x7f03001a;
-        public static final int activity_main_menu=0x7f03001b;
-        public static final int activity_tres_en_raya=0x7f03001c;
-        public static final int game_description=0x7f03001d;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001e;
+        public static final int activity_black_jack_ranking=0x7f030018;
+        public static final int activity_black_jack_ranking2=0x7f030019;
+        public static final int activity_create_account=0x7f03001a;
+        public static final int activity_game_list=0x7f03001b;
+        public static final int activity_login=0x7f03001c;
+        public static final int activity_main_menu=0x7f03001d;
+        public static final int activity_tres_en_raya=0x7f03001e;
+        public static final int fragment_black_jack_ranking=0x7f03001f;
+        public static final int game_description=0x7f030020;
+        public static final int support_simple_spinner_dropdown_item=0x7f030021;
     }
     public static final class menu {
         public static final int create_account=0x7f0d0000;
@@ -1859,7 +1865,9 @@ containing a value of this type.
         public static final int login=0x7f0d0003;
         public static final int main_menu=0x7f0d0004;
         public static final int menu_black_jack_=0x7f0d0005;
-        public static final int tres_en_raya=0x7f0d0006;
+        public static final int menu_black_jack_ranking=0x7f0d0006;
+        public static final int menu_black_jack_ranking2=0x7f0d0007;
+        public static final int tres_en_raya=0x7f0d0008;
     }
     public static final class raw {
         public static final int gtm_analytics=0x7f050000;
@@ -1919,12 +1927,14 @@ containing a value of this type.
         public static final int store_picture_message=0x7f0b0033;
         public static final int store_picture_title=0x7f0b0034;
         public static final int title_activity_black_jack_=0x7f0b0035;
-        public static final int title_activity_create_account=0x7f0b0036;
-        public static final int title_activity_game=0x7f0b0037;
-        public static final int title_activity_game_list=0x7f0b0038;
-        public static final int title_activity_login=0x7f0b0039;
-        public static final int title_activity_tres_en_raya=0x7f0b003a;
-        public static final int wallet_buy_button_place_holder=0x7f0b003b;
+        public static final int title_activity_black_jack_ranking=0x7f0b0036;
+        public static final int title_activity_black_jack_ranking2=0x7f0b0037;
+        public static final int title_activity_create_account=0x7f0b0038;
+        public static final int title_activity_game=0x7f0b0039;
+        public static final int title_activity_game_list=0x7f0b003a;
+        public static final int title_activity_login=0x7f0b003b;
+        public static final int title_activity_tres_en_raya=0x7f0b003c;
+        public static final int wallet_buy_button_place_holder=0x7f0b003d;
     }
     public static final class style {
         /** 

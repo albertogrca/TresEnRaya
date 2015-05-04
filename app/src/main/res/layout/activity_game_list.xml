@@ -10,4 +10,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.maco.tresenraya.GameListActivity" >
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ranking BlackJack"
+        android:id="@+id/btnRankingBJ"
+        android:onClick="ver_ranking" />
 </LinearLayout>
