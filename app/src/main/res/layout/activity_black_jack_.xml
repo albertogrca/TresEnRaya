@@ -109,4 +109,14 @@
         android:onClick="apostar"
         android:enabled="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Abandonar"
+        android:id="@+id/buttonAbandonar"
+        android:layout_alignBottom="@+id/btnApostar"
+        android:layout_toRightOf="@+id/btnApostar"
+        android:layout_toEndOf="@+id/btnApostar"
+        android:onClick="abandonar" />
+
 </RelativeLayout>

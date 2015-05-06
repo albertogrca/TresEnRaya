@@ -222,4 +222,8 @@ public class BlackJackActivity extends ActionBarActivity {
         mov = new BlackJackMovement(tvPlayer.getText().toString(),"a", apuestaAux);
         match.put(mov);
     }
+
+    public void abandonar(View v){
+        finish();
+    }
 }
